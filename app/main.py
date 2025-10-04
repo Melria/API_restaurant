@@ -6,7 +6,6 @@ from sqlalchemy.orm import declarative_base, sessionmaker
 
 from app.tasks.orders import process_order
 
-
 app = FastAPI()
 
 

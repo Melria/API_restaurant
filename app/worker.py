@@ -2,7 +2,6 @@ import os
 
 from celery import Celery
 
-
 # Chargement des variables d'env
 REDIS_URL = os.getenv("REDIS_URL", "redis://localhost:6379/0")
 
