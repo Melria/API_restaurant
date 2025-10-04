@@ -1,5 +1,4 @@
 # Development & CI tools (not installed in production image)
 unitest
-pyraider
 pip-licenses
 truffleHog
