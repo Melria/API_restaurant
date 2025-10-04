@@ -1,8 +1,10 @@
-from fastapi import FastAPI
-from app.tasks.orders import process_order
-from sqlalchemy import create_engine
-from sqlalchemy.orm import sessionmaker, declarative_base
 import os
+
+from fastapi import FastAPI
+from sqlalchemy import create_engine
+from sqlalchemy.orm import declarative_base, sessionmaker
+
+from app.tasks.orders import process_order
 
 
 app = FastAPI()
