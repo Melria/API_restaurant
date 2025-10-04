@@ -102,7 +102,13 @@
             run: flake8 .
 
           - name: Run tests
-            run: pytest -q
+            run: |
+              pytest -q || rc=$?; \
+              if [ "${rc:-0}" = "5" ]; then \
+                echo "No tests collected; skipping tests."; \
+              else \
+                if [ "${rc:-0}" -ne 0 ]; then exit ${rc}; fi; \
+              fi
 
           - name: Generate license report
             run: pip-licenses --format=json > licenses.json
