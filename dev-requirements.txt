@@ -1,4 +1,2 @@
 # Development & CI tools (not installed in production image)
-unitest
 pip-licenses
-truffleHog

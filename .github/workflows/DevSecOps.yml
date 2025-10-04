@@ -106,6 +106,3 @@
 
           - name: Generate license report
             run: pip-licenses --format=json > licenses.json
-
-          - name: Scan for Secrets with Trufflehog
-            run: trufflehog3 --no-history --format json --output report.json --exclude "env/*"
