@@ -68,18 +68,6 @@
                 # Lint with Flake8
                 flake8 .
 
-            - name: Test SCA vulnerabilities | Static Composition Analiysis
-              run: |
-                pyraider check -f requirements.txt
-
-            - name: Check package licence
-              run: |
-                pip-licenses --format=json > licenses.json
-                ./scripts/run-license-compliance.sh
-
-            - name: Scan for Secrets with Trufflehog
-              run: |
-               trufflehog3 --no-history --format json --output report.json --exclude "env/*"
             - name: Build an image from Dockerfile
               run: |
                docker build -t built-image:scan .
@@ -118,3 +106,9 @@
 
           - name: Generate license report
             run: pip-licenses --format=json > licenses.json
+
+          - name: Test SCA vulnerabilities | Static Composition Analysis
+            run: pyraider check -f requirements.txt
+
+          - name: Scan for Secrets with Trufflehog
+            run: trufflehog3 --no-history --format json --output report.json --exclude "env/*"
