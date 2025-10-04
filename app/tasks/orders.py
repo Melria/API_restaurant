@@ -1,6 +1,7 @@
 from app.worker import celery_app
 import time
 
+
 @celery_app.task
 def process_order(order_id: int):
     # Simulation d'un traitement long
