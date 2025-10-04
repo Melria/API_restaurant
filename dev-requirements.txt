@@ -1,3 +1,6 @@
 # Development & CI tools (not installed in production image)
 pip-licenses
 flake8
+pytest
+black
+isort
