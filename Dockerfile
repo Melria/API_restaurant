@@ -1,5 +1,5 @@
 # Stage 1: Build dependencies
-FROM python:3.12-slim AS builder
+FROM python:3.11-slim AS builder
 
 # Env vars (no .pyc, utf-8 everywhere)
 ENV PYTHONDONTWRITEBYTECODE=1 \
@@ -10,17 +10,24 @@ WORKDIR /app
 
 # Install build deps
 RUN apt-get update && apt-get install -y --no-install-recommends \
-    build-essential gcc \
+    build-essential \
+    gcc \
+    libpq-dev \
+    libssl-dev \
+    libffi-dev \
+    python3-dev \
+    pkg-config \
     && rm -rf /var/lib/apt/lists/*
 
 # Virtualenv
 RUN python -m venv /venv
 COPY requirements.txt .
-RUN /venv/bin/pip install --upgrade pip && \
+# Install wheel/build tools first so C extensions can be built
+RUN /venv/bin/pip install --upgrade pip setuptools wheel cython && \
     /venv/bin/pip install --no-cache-dir -r requirements.txt
 
 # Stage 2: Final image
-FROM python:3.12-slim
+FROM python:3.11-slim
 
 ENV PATH="/venv/bin:$PATH"
 

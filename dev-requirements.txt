@@ -1,0 +1,6 @@
+# Development & CI tools (not installed in production image)
+gevent
+unitest
+pyraider
+pip-licenses
+truffleHog
