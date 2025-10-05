@@ -1,4 +1,4 @@
-  name: DevSecOps Workflow
+name: DevSecOps Workflow
   
   on: 
     push:
@@ -112,3 +112,8 @@
 
           - name: Generate license report
             run: pip-licenses --format=json > licenses.json
+          - name: Run security scans
+            run: |
+              bandit -r . --format txt --output bandit-report.txt || true
+              safety check --output safety-report.json || true
+              detect-secrets scan --all-files --output detect-secrets-report.json || true

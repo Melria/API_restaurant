@@ -4,3 +4,6 @@ flake8
 pytest
 black
 isort
+bandit
+safety
+detect-secrets
