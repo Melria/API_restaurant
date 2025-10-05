@@ -1,9 +1,9 @@
 # Development & CI tools (not installed in production image)
-pip-licenses
-flake8
-pytest
-black
-isort
-bandit
-safety
-detect-secrets
+pip-licenses  # Generates license reports for dependencies to ensure compliance
+flake8        # Lints Python code for style and error checking (PEP 8)
+pytest        # Runs unit tests and handles test discovery
+black         # Auto-formats Python code for consistent style
+isort         # Sorts and formats Python imports
+bandit        # Scans Python code for common security vulnerabilities
+safety        # Checks dependencies for known security vulnerabilities (SCA)
+detect-secrets  # Scans code for hardcoded secrets like API keys

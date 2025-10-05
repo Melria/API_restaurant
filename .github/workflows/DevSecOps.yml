@@ -90,7 +90,7 @@ jobs:
       - name: Set up Python
         uses: actions/setup-python@v4
         with:
-          python-version: '3.11'
+          python-version: '3.12'  # Updated from 3.11
 
       - name: Install system packages (if needed)
         run: sudo apt-get update && sudo apt-get install -y build-essential python3-dev libssl-dev libffi-dev
