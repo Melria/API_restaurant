@@ -1,5 +1,5 @@
 # Stage 1: Build dependencies
-FROM python:3.12-slim AS builder
+FROM python:3.13-slim AS builder
 
 # Env vars (no .pyc, utf-8 everywhere)
 ENV PYTHONDONTWRITEBYTECODE=1 \
@@ -27,7 +27,7 @@ RUN /venv/bin/pip install --upgrade pip setuptools wheel cython && \
     /venv/bin/pip install --no-cache-dir -r requirements.txt
 
 # Stage 2: Final image
-FROM python:3.12-slim
+FROM python:3.13-slim
 
 ENV PATH="/venv/bin:$PATH"
 

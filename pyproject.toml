@@ -4,7 +4,7 @@ known_first_party = ["app"]
 
 [tool.black]
 line-length = 88
-target-version = ["py312"]  # Updated from py311
+target-version = ["py313"]  # Updated from py311
 
 [tool.flake8]
 max-line-length = 88
