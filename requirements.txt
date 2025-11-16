@@ -15,11 +15,12 @@ celery[redis]>=5.3.0
 pyjwt>=2.10.1
 passlib>=1.7.4
 bcrypt>=3.2.0
-cryptography>=43.0.0
+cryptography>=42.0.8
 
 # Environment & Configuration
 python-dotenv>=1.0.1
 pydantic>=2.6.4
+pydantic-settings>=2.0.0
 
 # Data Processing
 pandas>=2.2.0
